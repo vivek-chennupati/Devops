@@ -6,7 +6,7 @@
 #status=$( $update | awk 'NR==3{print $15}' )
 status=$( vmstat | awk 'NR==3{print $15}' )
 
-echo $status >>file.txt
+echo " vmstat cpu idel : $status " >>file.txt
 
 #echo -e "The current update for idel cpu is : \033[96m$status\033[0m"
 
