@@ -1,0 +1,2 @@
+96
+ vmstat cpu idel : 90 
