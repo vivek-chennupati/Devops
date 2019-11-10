@@ -1,0 +1,9 @@
+1) ansible -b -m user -a "name=asdf uid=1003 password={{ 'allisgood' | password_hash('sha512', 'mysecretsalt') }}" all
+2) ansible -b -m group -a "name=qwerty gid=1234" all
+3)ansible -b -m user -a "name=katre group=qwerty" all
+4)ansible -b -m archive -a "path=/home/ec2-user/ar* dest=/tmp/arbaz.zip format=zip" all
+5)ansible -b -m archive -a "path=/home/ec2-user/ar* dest=/tmp/arbaz.tar format=tar" all
+6)ansible -b -m lineinfile -a "path=/home/ec2-user/ar1 regexp='name=' line='name=nag'" all
+7)ansible -b -m lineinfile -a "path=/home/ec2-user/ar1 regexp='name=' line='name=nag'" all
+8)ansible -b -m lineinfile -a "path=/home/ec2-user/ar1 line='name=chay'" all
+9)ansible -b -m lineinfile -a "path=/home/ec2-user/ar1 insertafter='name=nag' line='name=akhil'" all
