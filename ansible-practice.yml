@@ -1,0 +1,71 @@
+---
+ - hosts: localhost
+   become: true
+   tasks:
+    - name: get_url module
+      get_url:
+          url: https://files.pythonhosted.org/packages/14/c6/a467a3df462ee7573fa2a5fde39b7b0caa6686485efa26d256af226a340b/cryptography-2.8-cp27-cp27m-manylinux1_x86_64.whl
+          dest: /home/ec2-user
+
+ - hosts: localhost
+   become: true
+   tasks:
+    - name: package module
+      yum:
+          name: httpd
+          state: present
+
+    - name: service start
+      service:
+          name: httpd
+          state: started
+
+ - hosts: localhost
+   become: true
+   tasks:
+    - name: copy module
+      copy:
+          src: /home/ec2-user/hostsfile
+          dest: /tmp
+
+ - hosts: localhost
+   become: true
+   tasks:
+    - name: archive module
+      archive:
+          path: /home/ec2-user/ar*
+          dest: /tmp/arbaz.zip
+          format: zip
+
+ - hosts: localhost
+   become: true
+   tasks:
+    - name: archive module
+      archive:
+          path: /home/ec2-user/ar*
+          dest: /tmp/arbaz.tar
+          format: tar
+
+ 
+- hosts: localhost
+   become: true
+   vars:
+     users:
+     - username: "paul"
+     - username: "tany"
+   tasks:
+   - name: user module
+     user:
+       name: "{{ item.username }}"
+     with_items: "{{ users }}"
+
+ - hosts: localhost
+   become: true
+   tasks:
+   - name: user delete
+     user:
+       name: paul
+       state: absent
+       remove: yes
+
+
