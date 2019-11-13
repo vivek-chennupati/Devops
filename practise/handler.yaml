@@ -1,0 +1,19 @@
+---
+  - hosts: localhost
+    become: yes
+    handlers:
+         - name: restart httpd
+           service:
+               name: httpd
+               state: restarted
+               listen: "restart my web server"
+
+    tasks:
+         - name: changing file
+           replace:
+             path: /etc/httpd/conf/httpd.conf
+             regexp: '^DocumentRoot.*$'
+             replace: 'DocumentRoot "/opt/ww"'
+             backup: yes
+           notify : "restart my web server"
+           

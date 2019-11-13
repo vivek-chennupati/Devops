@@ -1,0 +1,18 @@
+---
+ - hosts: localhost
+   become: yes
+   tasks:
+      - name: registering
+        file:
+           path: /home/ansible/testing
+           state: touch
+
+        register: output
+      - debug: msg="Register output is  {{output}}"
+
+      - name: editing file
+        lineinfile:
+           path: /home/ansible/testing
+           line: "{{output.gid}}"
+      
+      - debug: msg="output in file is"

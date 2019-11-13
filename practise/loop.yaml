@@ -1,0 +1,12 @@
+---
+ - hosts: localhost
+   become: yes
+   tasks:
+      - name: adding users
+        user:
+           name: "{{item}}"
+        with_items:
+           - training
+           - training1
+           - training2
+

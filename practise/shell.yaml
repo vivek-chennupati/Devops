@@ -1,0 +1,11 @@
+---
+ - hosts: localhost
+   become: true
+   gather_facts: false
+   tasks: 
+    - name: testing uptime
+      shell: /usr/bin/who >> whoami.log
+      args:
+         chdir: /home/ansible/testing
+         creates: whoami.log
+         
