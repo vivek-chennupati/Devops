@@ -1,0 +1,16 @@
+---
+  - hosts: localhost
+    become: yes
+    tasks: 
+      - name: test
+        block:
+          - get_url:
+               url:  
+               dest: /home/ansible/
+        rescue:
+          - get_url:
+               url: https://files.pythonhosted.org/packages/45/2d/df42370f316b90e31772fe96c8182ef2e73d9bcd744404487abea6e1f125/R305-2.0.0.tar.gz
+               dest: /home/ansible/
+
+        always:
+          - debug: msg="play done"

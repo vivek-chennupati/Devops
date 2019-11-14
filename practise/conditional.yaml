@@ -1,0 +1,11 @@
+---
+ - hosts: servers
+   become: yes
+   tasks:
+      - name: test
+        lineinfile: 
+           path: /home/ansible/testing 
+           line: "Hello World!"
+           create: yes
+        when:
+           - ansible_os_family == "RedHat"
