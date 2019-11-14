@@ -1,0 +1,7 @@
+---
+ - hosts: servers
+   become: yes
+   tasks: 
+    - name: test
+      shell: 'systemctl status httpd'
+      ignore_errors: yes
