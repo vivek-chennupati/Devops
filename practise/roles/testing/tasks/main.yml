@@ -1,0 +1,11 @@
+- name: Install apache server
+  apt: 
+    pkg=apache2 
+    state=absent
+
+- name: tesing copy
+  file:
+   path: /home/tomcat/training-roles 
+   state: touch
+  tags:
+   - testing-roles
