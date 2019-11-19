@@ -1,0 +1,9 @@
+---
+ - hosts: localhost
+   become: yes
+   tasks:
+    - name: test
+      template:
+           src: /home/ansible/network.j2
+           dest: /home/ansible/network.txt
+

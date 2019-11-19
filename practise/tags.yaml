@@ -1,0 +1,24 @@
+---
+
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: copying
+      copy:
+        src: /home/ansible/tags
+        dest: /home/ansible/tags1
+
+      tags:
+        - tags-copyying
+
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: copying
+      copy:
+        src: /home/ansible/tags
+        dest: /home/ansible/tags1
+        
+      tags:
+        - tags-copyying1
+
