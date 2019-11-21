@@ -1,0 +1,3 @@
+- name: restarted httpd
+  command: systemctl restart httpd
+  listen: restarted httpd
