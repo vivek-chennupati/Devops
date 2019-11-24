@@ -1,0 +1,6 @@
+---
+  - hosts: 13.233.152.110
+    become: yes
+    gather_facts: true
+    roles:
+      - testing

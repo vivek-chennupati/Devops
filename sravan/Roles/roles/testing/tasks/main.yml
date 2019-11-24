@@ -1,0 +1,20 @@
+- name: installing httpd
+  yum:
+   name: httpd
+   state: present
+
+- name: adding line
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    insertafter: '^#Listen '
+    state: present
+    line: '#Listen 8080'
+    backup: yes
+  notify: "restarted httpd"
+
+- name: Restart service httpd, in all cases
+  service:
+    name: httpd
+    state: restarted
+
+
