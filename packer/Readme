@@ -1,0 +1,9 @@
+Validate the template
+
+packer validate -var-file vars.json packer.json/pack.json
+
+
+
+Build the template
+
+packer build -var-file vars.json packer.json/pack.json
