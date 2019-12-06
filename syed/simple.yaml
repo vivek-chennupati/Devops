@@ -1,0 +1,14 @@
+- hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: package module
+      yum:
+          name: httpd
+          state: present
+
+    - name: service start
+      service:
+          name: httpd
+          state: started
+
