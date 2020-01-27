@@ -4,8 +4,8 @@
   tasks:
     - name: Stop the sandbox instances
       ec2:
-        instance_ids: i-0f9db8fb6e9a07ea4
-        region: us-west-2
+        instance_ids: *********
+        region: **********
         state: running
         wait: True
-        vpc_subnet_id: subnet-fbc54f82
+        vpc_subnet_id: *********
